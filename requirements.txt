@@ -9,22 +9,19 @@ pandas>=2.0.0
 numpy>=1.24.0
 matplotlib>=3.7.0
 seaborn>=0.12.2
+calmap>=0.1.9  # calmap补充版本号，避免解析问题
 
-# AI模型调用
+# AI模型调用（dashscope是百炼SDK，补充版本号更稳定）
 aiohttp>=3.8.4
 requests>=2.31.0
+dashscope>=1.14.0  # 替换原错误的pip命令，仅保留包名+版本
 
 # 工具库
 python-dotenv>=1.0.0
 pydantic>=2.0.0
 loguru>=0.7.0
+setuptools>=65.5.0  # 补充版本号
 
-# 测试库
+# 测试库（部署时可选，若不需要可删除）
 pytest>=7.3.0
 pytest-mock>=3.10.0
-
-python3 -m pip install -U dashscope
-
-pip install setuptools
-
-pip install calmap matplotlib pandas streamlit
