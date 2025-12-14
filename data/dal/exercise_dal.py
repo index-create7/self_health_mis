@@ -404,6 +404,38 @@ def auto_update_goal_progress(user_id: int):
         print(f"❌ 自动更新目标进度失败：{str(e)}")
 
 
+# 删除锻炼目标
+def delete_fitness_goal(goal_id: int, user_id: int) -> bool:
+    """
+    删除指定的锻炼目标
+    
+    Args:
+        goal_id: 目标ID
+        user_id: 用户ID
+        
+    Returns:
+        bool: 删除成功返回True，失败返回False
+    """
+    # 参数验证
+    if goal_id is None or goal_id <= 0:
+        print("❌ 无效的目标ID")
+        return False
+        
+    if user_id is None or user_id <= 0:
+        print("❌ 无效的用户ID")
+        return False
+        
+    try:
+        with db_instance._connect() as conn:
+            cursor = conn.execute(
+                "DELETE FROM fitness_goals WHERE id = ? AND user_id = ?",
+                (goal_id, user_id)
+            )
+            return cursor.rowcount > 0
+    except Exception as e:
+        print(f"❌ 删除锻炼目标失败：{str(e)}")
+        return False
+
 # 基于单个锻炼记录即时更新目标进度
 def update_goals_from_record(user_id: int, exercise_type: str, duration: float, distance: float = None, calories: int = None):
     """

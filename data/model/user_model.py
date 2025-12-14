@@ -1,3 +1,4 @@
+import dataclasses
 from dataclasses import dataclass
 from typing import List, Optional
 
@@ -11,4 +12,4 @@ class UserProfile:
     height: Optional[float] = None
     weight: Optional[float] = None
     fitness_level: str = "初级"
-    preferred_exercises: List[str] = None
+    preferred_exercises: List[str] = dataclasses.field(default_factory=list)

@@ -698,8 +698,29 @@ def main():
             st.subheader("目标")
             if goals:
                 for goal in goals:
-                    with st.expander(f"目标: {goal.name if hasattr(goal, 'name') else '未命名目标'}"):
-                        st.write(f"描述: {goal.description if hasattr(goal, 'description') else '无描述'}")
+                    # 计算进度百分比
+                    progress_percentage = (goal.current_value / goal.target_value) * 100 if goal.target_value > 0 else 0
+                    
+                    with st.expander(f"{goal.goal_type} - {'已完成' if goal.is_completed else '进行中'}"):
+                        col1, col2 = st.columns(2)
+                        
+                        with col1:
+                            st.write(f"**目标值**: {goal.target_value}")
+                            st.write(f"**当前进度**: {goal.current_value}")
+                            st.write(f"**开始日期**: {goal.start_date.strftime('%Y-%m-%d')}")
+                            st.write(f"**结束日期**: {goal.end_date.strftime('%Y-%m-%d')}")
+                        
+                        with col2:
+                            st.progress(progress_percentage / 100)  # 转换为0-1范围
+                            st.write(f"**完成度**: {progress_percentage:.1f}%")
+                            
+                            # 计算剩余天数
+                            today = datetime.now()
+                            if goal.end_date > today and not goal.is_completed:
+                                remaining_days = (goal.end_date - today).days
+                                st.write(f"**剩余天数**: {remaining_days} 天")
+                            elif goal.end_date <= today and not goal.is_completed:
+                                st.warning("目标已过期")
             else:
                 st.info("还没有设置锻炼目标")
 
