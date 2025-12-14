@@ -10,24 +10,9 @@ sys.path.insert(0, root_dir)
 
 # 验证自定义包目录是否存在
 package_path = os.path.join(root_dir, "self_health_mis")
-st.write(f"self_health_mis包目录是否存在：{os.path.exists(package_path)}")
-# 验证核心模块是否存在
-dal_path = os.path.join(package_path, "data", "dal", "exercise_dal.py")
-st.write(f"exercise_dal.py是否存在：{os.path.exists(dal_path)}")
 
-# ========== 3. 正确导入自定义包（和本地一致） ==========
-try:
-    from self_health_mis.data.dal.exercise_dal import add_fitness_record
-    from self_health_mis.data.model.exercise_model import FitnessRecord
-    st.success("✅ 自定义包导入成功！")
-except Exception as e:
-    st.error(f"❌ 导入失败：{str(e)}")
-    # 兜底方案（若包结构异常）
-    try:
-        from data.dal.exercise_dal import add_fitness_record
-        st.success("✅ 兜底导入成功（直接导入data模块）")
-    except Exception as e2:
-        st.error(f"❌ 兜底导入也失败：{str(e2)}")
+
+dal_path = os.path.join(package_path, "data", "dal", "exercise_dal.py")
 
 from self_health_mis.data.dal.exercise_dal import add_fitness_record
 from self_health_mis.data.model.exercise_model import FitnessRecord
