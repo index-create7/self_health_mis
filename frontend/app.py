@@ -1,7 +1,7 @@
 # E:\trae_ide\mis\self_health_mis\frontend\app.py
 import sys
 import os
-
+import streamlit as st
 frontend_dir = os.path.dirname(os.path.abspath(__file__))
 # 获取仓库根目录（frontend/的上一级：/mount/src/self_health_mis/）
 root_dir = os.path.dirname(frontend_dir)
@@ -31,7 +31,7 @@ except Exception as e:
 
 from self_health_mis.data.dal.exercise_dal import add_fitness_record
 from self_health_mis.data.model.exercise_model import FitnessRecord
-import streamlit as st
+
 import pandas as pd
 from datetime import datetime, date, timedelta
 from self_health_mis.core.exercise_service import add_user_exercise_record,ExerciseServiceError, ValidationError, DatabaseError
