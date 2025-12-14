@@ -2,12 +2,11 @@
 import sys
 import os
 
-from self_health_mis.data.dal.exercise_dal import add_fitness_record
-from self_health_mis.data.model.exercise_model import FitnessRecord
 
 # 添加项目根目录到Python路径
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
+from self_health_mis.data.dal.exercise_dal import add_fitness_record
+from self_health_mis.data.model.exercise_model import FitnessRecord
 import streamlit as st
 import pandas as pd
 from datetime import datetime, date, timedelta
