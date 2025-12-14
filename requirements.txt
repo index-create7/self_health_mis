@@ -1,0 +1,30 @@
+# 前端框架
+streamlit>=1.24.0
+
+# Oracle数据库连接
+cx_Oracle>=8.3.0
+
+# 数据分析与可视化
+pandas>=2.0.0
+numpy>=1.24.0
+matplotlib>=3.7.0
+seaborn>=0.12.2
+
+# AI模型调用
+aiohttp>=3.8.4
+requests>=2.31.0
+
+# 工具库
+python-dotenv>=1.0.0
+pydantic>=2.0.0
+loguru>=0.7.0
+
+# 测试库
+pytest>=7.3.0
+pytest-mock>=3.10.0
+
+python3 -m pip install -U dashscope
+
+pip install setuptools
+
+pip install calmap matplotlib pandas streamlit
