@@ -1,27 +1,17 @@
-# 前端框架
-streamlit>=1.24.0
+yarl==1.22.0
 
-# Oracle数据库连接
-cx_Oracle>=8.3.0
-
-# 数据分析与可视化
-pandas>=2.0.0
-numpy>=1.24.0
-matplotlib>=3.7.0
-seaborn>=0.12.2
-calmap>=0.1.9  # calmap补充版本号，避免解析问题
-
-# AI模型调用（dashscope是百炼SDK，补充版本号更稳定）
-aiohttp>=3.8.4
-requests>=2.31.0
-dashscope>=1.14.0  # 替换原错误的pip命令，仅保留包名+版本
-
-# 工具库
-python-dotenv>=1.0.0
-pydantic>=2.0.0
-loguru>=0.7.0
-setuptools>=65.5.0  # 补充版本号
-
-# 测试库（部署时可选，若不需要可删除）
-pytest>=7.3.0
-pytest-mock>=3.10.0
+# python_version = "3.12" （必须和本地Python版本完全一致）
+streamlit==1.36.0  # 本地用的版本
+oracledb==3.4.0
+pandas==2.2.2
+numpy==1.26.4
+matplotlib==3.8.4
+seaborn==0.13.2
+calmap==0.0.11
+aiohttp==3.9.5
+requests==2.31.0
+dashscope==1.18.0
+python-dotenv==1.0.1
+pydantic==2.5.0  # 本地安装的版本
+loguru==0.7.2
+setuptools==69.5.1
