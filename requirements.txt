@@ -1,28 +1,18 @@
-# 强制指定Python版本兼容（Streamlit Cloud识别此注释）
-# python_version = "3.12"
+yarl==1.22.0
 
-# 前端框架（仅保留核心，适配3.13）
-streamlit==1.36.0  # 明确兼容3.13的版本
-
-# Oracle数据库连接（纯Python驱动，无编译依赖）
-oracledb==3.4.0    # 3.4.0明确支持Python 3.13
-
-# 数据分析与可视化（全预编译版本，避免源码编译）
-pandas==2.2.2      # 2.2.2是支持3.13的稳定版（预编译wheel）
-numpy==1.26.4      # 指定版本+预编译包
-matplotlib==3.8.4  # 3.8.4兼容3.13
-seaborn==0.13.2    # 适配pandas 2.2.2
-calmap==0.0.11     # calmap最高稳定版（无0.1.9版本）
-
-# AI模型调用（纯Python包，无编译依赖）
-aiohttp==3.9.5     # 3.9.5兼容3.13
-requests==2.31.0   # 稳定版，无编译依赖
-dashscope==1.18.0  # 百炼SDK最新兼容版
-
-# 工具库（降级pydantic到兼容3.13的版本）
+# python_version = "3.12" （必须和本地Python版本完全一致）
+streamlit==1.36.0  # 本地用的版本
+oracledb==3.4.0
+pandas==2.2.2
+numpy==1.26.4
+matplotlib==3.8.4
+seaborn==0.13.2
+calmap==0.0.11
+aiohttp==3.9.5
+requests==2.31.0
+dashscope==1.18.0
 python-dotenv==1.0.1
-pydantic==2.8.2    # 2.8.2的pydantic-core已适配3.13
+pydantic==2.5.0  # 本地安装的版本
 loguru==0.7.2
-setuptools==69.5.1 # 最新稳定版，兼容3.13
+setuptools==69.5.1
 
-# 移除所有测试库（部署环境无需）
