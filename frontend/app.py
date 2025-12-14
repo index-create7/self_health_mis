@@ -8,9 +8,6 @@ root_dir = os.path.dirname(frontend_dir)
 # 强制将根目录插入Python路径最前端（最高优先级，覆盖默认路径）
 sys.path.insert(0, root_dir)
 
-# ========== 2. 验证路径/包是否存在（云端调试） ==========
-st.write("### 云端路径验证")
-st.write(f"仓库根目录：{root_dir}")
 # 验证自定义包目录是否存在
 package_path = os.path.join(root_dir, "self_health_mis")
 st.write(f"self_health_mis包目录是否存在：{os.path.exists(package_path)}")
@@ -32,7 +29,8 @@ except Exception as e:
     except Exception as e2:
         st.error(f"❌ 兜底导入也失败：{str(e2)}")
 
-
+from self_health_mis.data.dal.exercise_dal import add_fitness_record
+from self_health_mis.data.model.exercise_model import FitnessRecord
 import streamlit as st
 import pandas as pd
 from datetime import datetime, date, timedelta
